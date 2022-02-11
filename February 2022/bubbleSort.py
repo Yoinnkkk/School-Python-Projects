@@ -1,5 +1,7 @@
+import arrayMaker as am
 #Bubble sort lesson 04022022
-array = [92,55,84,48,72,90,87,54,67,75]
+#array = [92,55,84,48,72,90,87,54,67,75]
+array = am.makeArray(100, 1, 150)
 def bubbleSort(array):
     swap = True
     amount = len(array)
