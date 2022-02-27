@@ -1,25 +1,31 @@
 # main function
 
-def compress(object):
-    object = open(object, "r").read()
-    encryptedarray = []
+def compress(input, output):
+    input = open("Projects/ASCIIEncryptor/"+input, "r").read()
+    open("Projects/ASCIIEncryptor/"+output, "w").close()
+    finishedproduct = open("Projects/ASCIIEncryptor/"+output, "a")
+    encodedarray = []
     counter = 0
     #seperates ascii art into array
-    for string in object:
+    for string in input:
         if len(string) > 0:
-            encryptedarray.append(string)
+            encodedarray.append(string)
     #counter for all ascii characters
-    currentchar = encryptedarray[0]
+    currentchar = encodedarray[0]
     def recall(counter, currentchar):
-            while currentchar == encryptedarray[0]: 
-                encryptedarray.pop(0)
-                counter+=1
-            if currentchar != encryptedarray[0]:
-                open("Projects/ASCIIEncryptor/ASCIICompressed.txt", "a").write(str(counter) + currentchar)
-                currentchar = encryptedarray[0]
-                counter = 0
-                if len(encryptedarray) == 1:
-                    open("Projects/ASCIIEncryptor/ASCIICompressed.txt", "a").write(str(1) + encryptedarray[0])
-                recall(counter, currentchar)
+#        if len(encodedarray) == 0:
+#            return
+        if currentchar != encodedarray[0]:
+            finishedproduct.write(str(counter) + currentchar)
+            currentchar = encodedarray[0]
+            counter = 0
+            if len(encodedarray) == 1:
+                finishedproduct.write(str(1) + encodedarray[0])
+                return
+            recall(counter, currentchar)
+        if currentchar == encodedarray[0]: 
+            encodedarray.pop(0)
+            counter+=1
+            recall(counter, currentchar)
     recall(counter, currentchar)
-    return encryptedarray
+    return encodedarray

@@ -1,23 +1,24 @@
 
 # main function
-def decompress(object):
-    object = open(object, "r").read()
+def decompress(input, output):
+    input = open("Projects/ASCIIEncryptor/"+input, "r").read()
     decodedarray = []
     counter = 0
-    finishedproduct = open("Projects/ASCIIEncryptor/ASCIIDecompressed.txt", "a")
-    for string in object:
+    open("Projects/ASCIIEncryptor/" + output, "w").close()
+    finishedproduct = open("Projects/ASCIIEncryptor/" + output, "a")
+    for string in input:
         decodedarray.append(string)
     def recall(counter):
-        if decodedarray[0] == '0' or decodedarray[0] == '1' or decodedarray[0] == '2' or decodedarray[0] == '3' or decodedarray[0] == '4' or decodedarray[0] == '5' or decodedarray[0] == '6' or decodedarray[0] == '7' or decodedarray[0] == '8' or decodedarray[0] == '9':
-            if decodedarray[1] == '0' or decodedarray[1] == '1' or decodedarray[1] == '2' or decodedarray[1] == '3' or decodedarray[1] == '4' or decodedarray[1] == '5' or decodedarray[1] == '6' or decodedarray[1] == '7' or decodedarray[1] == '8' or decodedarray[1] == '9':
-                counter = int(decodedarray[0] + decodedarray[1])
-                decodedarray.pop(0)
-                decodedarray.pop(0)
-                recall(counter)
-            else:
-                counter = int(decodedarray[0])
-                decodedarray.pop(0)
-                recall(counter)
+        if len(decodedarray) == 0:
+            return
+        if decodedarray[0].isdigit() == True and decodedarray[1].isdigit() == True:
+            decodedarray[0] = decodedarray[0] + decodedarray[1]
+            decodedarray.pop(1)
+            recall(counter)
+        elif decodedarray[0].isdigit() == True and decodedarray[1].isdigit() == False:
+            counter = int(decodedarray[0])
+            decodedarray.pop(0)
+            recall(counter)
         else:
             while counter != 0:
                 finishedproduct.write(decodedarray[0])
