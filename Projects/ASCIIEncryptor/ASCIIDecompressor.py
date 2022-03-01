@@ -1,11 +1,11 @@
 
 # main function
 def decompress(input, output):
-    input = open("Projects/ASCIIEncryptor/"+input, "r").read()
+    input = open("Projects/ASCIIEncryptor/"+input+".txt", "r").read()
     decodedarray = []
     counter = 0
-    open("Projects/ASCIIEncryptor/" + output, "w").close()
-    finishedproduct = open("Projects/ASCIIEncryptor/" + output, "a")
+    open("Projects/ASCIIEncryptor/" + output+".txt", "w").close()
+    finishedproduct = open("Projects/ASCIIEncryptor/" + output+".txt", "a")
     for string in input:
         decodedarray.append(string)
     def recall(counter):

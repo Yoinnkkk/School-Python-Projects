@@ -1,9 +1,9 @@
 # main function
 
 def compress(input, output):
-    input = open("Projects/ASCIIEncryptor/"+input, "r").read()
-    open("Projects/ASCIIEncryptor/"+output, "w").close()
-    finishedproduct = open("Projects/ASCIIEncryptor/"+output, "a")
+    input = open("Projects/ASCIIEncryptor/"+input+".txt", "r").read()
+    open("Projects/ASCIIEncryptor/"+output+".txt", "w").close()
+    finishedproduct = open("Projects/ASCIIEncryptor/"+output+".txt", "a")
     encodedarray = []
     counter = 0
     #seperates ascii art into array
