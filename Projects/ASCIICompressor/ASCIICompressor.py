@@ -1,9 +1,9 @@
 # main function
 
 def compress(input, output):
-    input = open("Projects/ASCIIEncryptor/"+input+".txt", "r").read()
-    open("Projects/ASCIIEncryptor/"+output+".txt", "w").close()
-    finishedproduct = open("Projects/ASCIIEncryptor/"+output+".txt", "a")
+    input = open("Projects/ASCIICompressor/"+input+".txt", "r").read()
+    open("Projects/ASCIICompressor/"+output+".txt", "w").close()
+    finishedproduct = open("Projects/ASCIICompressor/"+output+".txt", "a")
     encodedarray = []
     counter = 0
     #seperates ascii art into array
@@ -15,8 +15,11 @@ def compress(input, output):
     def recall(counter, currentchar):
 #        if len(encodedarray) == 0:
 #            return
-        if currentchar != encodedarray[0]:
-            finishedproduct.write(str(counter) + currentchar)
+        if currentchar != encodedarray[0] and not counter > 99:
+            if counter >= 10:
+                finishedproduct.write(str(counter) + currentchar)
+            else:
+                finishedproduct.write("0" + str(counter) + currentchar)
             currentchar = encodedarray[0]
             counter = 0
             if len(encodedarray) == 1:
