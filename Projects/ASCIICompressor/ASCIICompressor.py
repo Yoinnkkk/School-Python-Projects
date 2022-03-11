@@ -15,20 +15,19 @@ def compress(input, output):
     def recall(counter, currentchar):
 #        if len(encodedarray) == 0:
 #            return
-        if currentchar != encodedarray[0] and not counter > 99:
-            if counter >= 10:
-                finishedproduct.write(str(counter) + currentchar)
-            else:
-                finishedproduct.write("0" + str(counter) + currentchar)
-            currentchar = encodedarray[0]
-            counter = 0
-            if len(encodedarray) == 1:
-                finishedproduct.write(str(1) + encodedarray[0])
-                return
-            recall(counter, currentchar)
-        if currentchar == encodedarray[0]: 
-            encodedarray.pop(0)
-            counter+=1
-            recall(counter, currentchar)
+        while len(encodedarray) > 0:
+            if currentchar != encodedarray[0] and not counter > 99:
+                if counter >= 10:
+                    finishedproduct.write(str(counter) + currentchar)
+                else:
+                    finishedproduct.write("0" + str(counter) + currentchar)
+                currentchar = encodedarray[0]
+                counter = 0
+                if len(encodedarray) == 1:
+                    finishedproduct.write(str(1) + encodedarray[0])
+                    return
+            if currentchar == encodedarray[0]: 
+                encodedarray.pop(0)
+                counter+=1
     recall(counter, currentchar)
     return encodedarray

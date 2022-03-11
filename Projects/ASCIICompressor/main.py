@@ -19,3 +19,4 @@ def menu():
     else:
         print("Unknown choice or quit found.")
         quit()
+menu()
