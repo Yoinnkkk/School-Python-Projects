@@ -13,8 +13,6 @@ def compress(input, output):
     #counter for all ascii characters
     currentchar = encodedarray[0]
     def recall(counter, currentchar):
-#        if len(encodedarray) == 0:
-#            return
         while len(encodedarray) > 0:
             if currentchar != encodedarray[0] and not counter > 99:
                 if counter >= 10:
