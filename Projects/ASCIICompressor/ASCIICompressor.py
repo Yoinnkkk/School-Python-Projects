@@ -1,6 +1,9 @@
 # main function
 
 def compress(input, output):
+    #make file extension work 
+    input = input.split(".")[0]
+    output = output.split(".")[0]
     input = open("Projects/ASCIICompressor/"+input+".txt", "r").read()
     open("Projects/ASCIICompressor/"+output+".txt", "w").close()
     finishedproduct = open("Projects/ASCIICompressor/"+output+".txt", "a")

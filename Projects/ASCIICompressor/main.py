@@ -1,23 +1,23 @@
 from ASCIICompressor import compress
 from ASCIIDecompressor import decompress
 import time as t
-def inputconfigged(string):
+def inputconfiged(string):
     return input(string + "\n:::   ")
 
 def wait(time):
     t.sleep(time)
 
 def menu():
-    Question = inputconfigged("Choose an option from the ones below:\nCompress\nDecompress\nDisplay\nQuit")
+    Question = inputconfiged("Choose an option from the ones below:\nCompress\nDecompress\nDisplay\nQuit")
 
     if Question.lower() == "compress":
-        Question = inputconfigged("What is the name of the object you would like to compress? ")
-        Question2 = inputconfigged("What is the file you would like to output to? ")
+        Question = inputconfiged("What is the name of the object you would like to compress? ")
+        Question2 = inputconfiged("What is the file you would like to output to? ")
         compress(Question, Question2)
         menu()
     elif Question.lower() == "decompress":
-        Question = inputconfigged("What is the name of the object you would like to decompress? ")
-        Question2 = inputconfigged("What is the file you would like to output to? ")
+        Question = inputconfiged("What is the name of the object you would like to decompress? ")
+        Question2 = inputconfiged("What is the file you would like to output to? ")
         decompress(Question, Question2)
         menu()
     elif Question.lower() == "display":

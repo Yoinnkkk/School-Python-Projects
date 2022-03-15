@@ -1,5 +1,7 @@
 # main function
 def decompress(input, output):
+    input = input.split(".")[0]
+    output = output.split(".")[0]
     input = open("Projects/ASCIICompressor/"+input+".txt", "r").read()
     decodedarray = []
     counter = 0
@@ -21,4 +23,3 @@ def decompress(input, output):
             counter = 0
     recall(counter)
     return
-decompress("a", "art")
