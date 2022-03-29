@@ -23,4 +23,3 @@ def decompress(input, output):
             counter = 0
     recall(counter)
     return
-decompress("Compressed", "Decompressed")

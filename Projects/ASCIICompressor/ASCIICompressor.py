@@ -25,7 +25,8 @@ def compress(input, output):
                 currentchar = encodedarray[0]
                 counter = 0
                 if len(encodedarray) == 1:
-                    finishedproduct.write(str(1) + encodedarray[0])
+                    finishedproduct.write(str(0) + str(1) + encodedarray[0])
+                    finishedproduct.write(str(1))
                     return
             if currentchar == encodedarray[0]: 
                 encodedarray.pop(0)
