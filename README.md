@@ -8,15 +8,15 @@ Task 3.
         a. Done<br/>
 Task 4. 
         a. Done<br/>
-        b. Done<br/>
-        c. Done<br/>
+        b. Done
+        c. Done
 Task 5.
         a. Done<br/>
-        b. Done<br/>
-        c. Done<br/>
+        b. Done
+        c. Done
 Task 6. 
         a. Done<br/>
-        b. Done<br/>
-        c. Done<br/>
+        b. Done
+        c. Done
 <br/>
 **Done from _21/01/2022_ to _Now_**
