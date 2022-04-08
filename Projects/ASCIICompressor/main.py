@@ -17,15 +17,13 @@ def enterRLE():
     for i in range(Question):
         rleline.append(inputconfiged("Please input line "+ str(i+1)))
     rleline = ''.join(rleline)
-    opened = open(path + "Compressedtemp.txt", "w")
-    opened.write(rleline)
+    with open(path + "Compressedtemp.txt", "w") as opened:
+        opened.write(rleline)
     decompress("Compressedtemp.txt", "Decompressedtemp.txt")
-    wait(3)
-    #os.remove(path + "Compressedtemp.txt")
+    os.remove(path + "Compressedtemp.txt")
     file = open(path + "Decompressedtemp.txt", "r").read()
     print(file)
-    wait(3)
-    #os.remove(path + "Decompressedtemp.txt")
+    os.remove(path + "Decompressedtemp.txt")
     return
 
 def menu():
