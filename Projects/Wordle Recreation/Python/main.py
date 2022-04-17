@@ -1,4 +1,5 @@
 from word import tword
+
 def inputc(string):
     return input(string + "\n:::   ")
 
@@ -13,21 +14,33 @@ class Canvas:
         self.correct = False
         while len(self.tiles) != tries:
             self.tiles.append([])
-            print(self.tiles)
             
 #first array in tiles defines tries
 #second array inside tiles defines word
-def display():
-    x=0
-    while x < len(canvas.tiles):
-        print(canvas.tiles)
-        x+=1
+# e.g length = 5, tries = 2
+# [] [] [] [] [] - Try 1
+# [] [] [] [] [] - Try 2
+# overall has 5 letters in one
+# def display(canvas):
+#     x=0
+#     while x < len(canvas.tiles):
+#         print(canvas.tiles)
+#         x+=1
+#     return
+
+def inputChecker():
+    with open("Projects/Wordle Recreation/Python/dictionary.txt", "r", errors='ignore', encoding="utf8") as f1:
+        dictionary = f1.read()
+        wordInput = ""
+        while wordInput not in dictionary:
+            wordInput = inputc("Please input a word: ")
+    return wordInput
 
 def main(l, t):
     canvas = Canvas(l, t)
     while canvas.correct != True:
-        display()
-        
+        # display(canvas)
+        inputChecker()
     return
 
 while True:
