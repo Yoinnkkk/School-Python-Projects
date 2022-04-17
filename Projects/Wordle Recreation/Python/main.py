@@ -8,6 +8,8 @@ class Canvas:
         self.tries = tries
         self.triesused = 0
         self.usedwords = []
+        self.tiles = list(list())
+
 
 def start(l, t):
     canvas = Canvas(l, t)
