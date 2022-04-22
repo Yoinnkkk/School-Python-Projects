@@ -10,9 +10,10 @@ class Canvas:
         self.tries = tries
         self.triesused = 0
         self.usedwords = []
+        self.newword = ""
         self.tiles = []
         self.correct = False
-        while len(self.tiles) != tries:
+        while len(self.tiles) < tries:
             self.tiles.append([])
             
 #first array in tiles defines tries
@@ -21,26 +22,45 @@ class Canvas:
 # [] [] [] [] [] - Try 1
 # [] [] [] [] [] - Try 2
 # overall has 5 letters in one
-# def display(canvas):
-#     x=0
-#     while x < len(canvas.tiles):
-#         print(canvas.tiles)
-#         x+=1
-#     return
+def display(canvas):
+    x, currentword=0,""
+    if canvas.usedwords != [] and canvas.newword != canvas.usedwords[canvas.triesused - 1]:
+        currentword = canvas.usedwords[canvas.triesused - 1]
+        for c in currentword:
+            canvas.tiles[canvas.triesused - 1].append(c)
+    while x < len(canvas.tiles):
+        print(canvas.tiles[x])
+        x+=1
+    return
 
-def inputChecker():
-    with open("Projects/Wordle Recreation/Python/dictionary.txt", "r", errors='ignore', encoding="utf8") as f1:
-        dictionary = f1.read()
-        wordInput = ""
-        while wordInput not in dictionary:
-            wordInput = inputc("Please input a word: ")
-    return wordInput
+def inputChecker(dict, canvas):
+        #while wordInput not in dictionary:
+        wordInput = inputc("Please input a word: ")
+        with open("Projects/Wordle Recreation/Python/dictionaries/dict"+str(dict)+".txt", "r") as f1:
+            read = f1.readlines()
+            dict = []
+            for c in read:
+                c = c.rstrip()
+                dict.append(c)
+            while wordInput not in dict:
+                wordInput = inputc("Please input a correct word: ")
+                display(canvas)
+        return wordInput
 
 def main(l, t):
     canvas = Canvas(l, t)
     while canvas.correct != True:
-        # display(canvas)
-        inputChecker()
+        display(canvas)
+        input = inputChecker(l, canvas)
+        canvas.usedwords.append(input)
+        canvas.triesused+=1
+        if input == tword:
+            print("Well Done!")
+            canvas.correct == True
+            return
+        if canvas.triesused == canvas.tries:
+            print("No more tries left")
+            return
     return
 
 while True:
