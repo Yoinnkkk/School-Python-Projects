@@ -1,5 +1,4 @@
 from wordlibrary import randomWord
-
 def inputc(string):
     return input(string + "\n:::   ")
 
@@ -26,16 +25,20 @@ class Canvas:
 # [] [] [] [] [] - Try 1
 # [] [] [] [] [] - Try 2
 # overall has 5 letters in one
+
 def display(canvas):
     x, currentword=0,""
     if canvas.usedwords != []:
         currentword = canvas.usedwords[canvas.triesused - 1]
         i=0
-        for c in currentword:
-            for x in canvas.correctword:
-                if c == x:
-                    
-            canvas.tiles[canvas.triesused - 1][i].append(c)
+        for d in canvas.correctword:       # get every character in the correct word
+            for character in currentword:      # get every character in word used
+                if character == d:       # if the character is the same
+                    print("same character")
+                    break
+                if character in canvas.correctword and character != d:
+                    print("wrong place character")
+            canvas.tiles[canvas.triesused - 1][i].append(character)
             i+=1
     while x < len(canvas.tiles):
         print(canvas.tiles[x])
@@ -65,6 +68,7 @@ def main(l, t):
         canvas.usedwords.append(word)
         canvas.newword = word
         canvas.triesused+=1
+        print(canvas.correctword)
         if canvas.correctword == word:
             display(canvas)
             print("Well Done!")
